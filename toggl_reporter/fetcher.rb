@@ -22,6 +22,10 @@ module TogglReporter
       self.workspace = response.first['id']
     end
 
+    def projects
+      JSON.parse(connection.get("api/v8/workspaces/#{workspace}/projects").body)
+    end
+
     private
 
     def connection_params(config)

@@ -7,4 +7,6 @@ require 'pry'
 puts 'Welcome to Toggl Reporter'
 
 config = TogglReporter::Config.new
-connection = TogglReporter::Fetcher.new(config)
+fetcher = TogglReporter::Fetcher.new(config)
+
+fetcher.projects.each_with_index { |p, i| puts "#{i + 1} - #{p['name']}" }
