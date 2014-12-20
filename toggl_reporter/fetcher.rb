@@ -19,12 +19,6 @@ module TogglReporter
     end
 
     def project_data(params)
-      params = {
-        project_ids: params[:project_id],
-        workspace_id: workspace,
-        grouping: 'users',
-        billable: params[:billable]
-      }
       url = 'reports/api/v2/summary'
       JSON.parse(connection.get(url, params).body)
     end
