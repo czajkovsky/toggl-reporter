@@ -10,7 +10,7 @@ Create <code>config.yml</code> file and save your e-mail address and API token -
 Config example:
 ```
 email: your@email.com
-api_token y0urt0k3n
+api_token: y0urt0k3n
 ```
 
 Then simply run:
