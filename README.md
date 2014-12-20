@@ -5,7 +5,7 @@ This simple script shows summary of [Toggl](https://www.toggl.com/) time entries
 
 ## Usage
 
-Create <code>config.yml</code> file and save your e-mail address and API token - you can find it here (https://www.toggl.com/app/profile).
+Create <code>config.yml</code> file and save your e-mail address and API token - you can find it [here](https://www.toggl.com/app/profile).
 
 Config example:
 ```
