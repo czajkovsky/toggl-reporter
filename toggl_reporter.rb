@@ -15,5 +15,5 @@ selected_project = fetcher.projects[option_id.to_i - 1]
 
 summary = TogglReporter::Summary.new(fetcher: fetcher,
                                      project_id: selected_project['id']).call
-puts "\n\nReport for #{selected_project['name']}"
+puts "\n\nReport for #{selected_project['name']} (last 4 weeks)"
 summary.print

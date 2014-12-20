@@ -44,7 +44,9 @@ module TogglReporter
         project_ids: project_id,
         workspace_id: fetcher.workspace,
         grouping: 'users',
-        billable: params[:billable]
+        billable: params[:billable],
+        until: Time.now.strftime('%F'),
+        since: (Time.now - 4 * 7 * 24 * 60 * 60).strftime('%F')
       }
     end
   end
