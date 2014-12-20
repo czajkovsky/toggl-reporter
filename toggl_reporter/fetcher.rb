@@ -4,7 +4,7 @@ require 'json'
 
 module TogglReporter
   class Fetcher
-    attr_accessor :connection, :workspace
+    attr_accessor :connection, :workspace, :projects
 
     def initialize(config)
       @connection = Faraday.new(connection_params(config)) do |f|
@@ -15,18 +15,20 @@ module TogglReporter
         f.basic_auth config.api_token, 'api_token'
       end
       fetch_workspace
+      fetch_projects
     end
+
+    private
 
     def fetch_workspace
       response = JSON.parse(connection.get('api/v8/workspaces').body)
       self.workspace = response.first['id']
     end
 
-    def projects
-      JSON.parse(connection.get("api/v8/workspaces/#{workspace}/projects").body)
+    def fetch_projects
+      url = "api/v8/workspaces/#{workspace}/projects"
+      self.projects = JSON.parse(connection.get(url).body)
     end
-
-    private
 
     def connection_params(config)
       {
