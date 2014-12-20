@@ -1,6 +1,7 @@
 require 'faraday'
 require 'logger'
 require 'json'
+require 'hashie'
 
 module TogglReporter
   class Fetcher
@@ -20,7 +21,7 @@ module TogglReporter
 
     def project_data(params)
       url = 'reports/api/v2/summary'
-      JSON.parse(connection.get(url, params).body)
+      Hashie::Mash.new(JSON.parse(connection.get(url, params).body))
     end
 
     private

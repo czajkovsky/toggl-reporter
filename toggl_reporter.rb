@@ -14,6 +14,6 @@ fetcher.projects.each_with_index { |p, i| puts "#{i + 1} - #{p['name']}" }
 fetcher.project_data(project_id: fetcher.projects.first['id'],
                      billable: 'false')
 
-project_id = fetcher.projects.first['id']
+project_id = fetcher.projects[15]['id']
 summary = TogglReporter::Summary.new(fetcher: fetcher,
-                                     project_id: project_id).call
+                                     project_id: project_id).call.print
