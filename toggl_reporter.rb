@@ -1,3 +1,10 @@
 #!/usr/bin/env ruby
 
+require_relative 'toggl_reporter/connection'
+require_relative 'toggl_reporter/config'
+require 'pry'
+
 puts 'Welcome to Toggl Reporter'
+
+config = TogglReporter::Config.new
+connection = TogglReporter::Connection.new(config)
