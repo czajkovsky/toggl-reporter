@@ -25,6 +25,7 @@ module TogglReporter
     def print_group(group, label)
       puts "\nTotal #{label} - #{format_time(group.total_grand)}"
       puts '--------------'
+      puts('No entries') && return if group.data.empty?
       group.data.each { |entry| puts format_user_entry(entry) }
     end
 
@@ -33,6 +34,7 @@ module TogglReporter
     end
 
     def format_time(time)
+      return '0h 0min' if time.nil?
       s, _ = time.divmod(1000)
       m, _ = s.divmod(60)
       h, m = m.divmod(60)
