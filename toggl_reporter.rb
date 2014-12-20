@@ -10,3 +10,5 @@ config = TogglReporter::Config.new
 fetcher = TogglReporter::Fetcher.new(config)
 
 fetcher.projects.each_with_index { |p, i| puts "#{i + 1} - #{p['name']}" }
+fetcher.project_data(project_id: fetcher.projects.first['id'],
+                     billable: 'false')
