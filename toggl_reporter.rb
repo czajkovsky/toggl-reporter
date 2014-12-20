@@ -14,8 +14,9 @@ fetcher.projects.each_with_index { |p, i| puts "#{i + 1} - #{p['name']}" }
 
 puts 'Select project (type id):'
 option_id = gets.chomp
-project_id = fetcher.projects[option_id.to_i - 1]['id']
+selected_project = fetcher.projects[option_id.to_i - 1]
 
 summary = TogglReporter::Summary.new(fetcher: fetcher,
-                                     project_id: project_id).call
+                                     project_id: selected_project['id']).call
+puts "\n\nReport for #{selected_project['name']}"
 summary.print
