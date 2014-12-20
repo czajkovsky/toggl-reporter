@@ -3,7 +3,6 @@
 require_relative 'toggl_reporter/fetcher'
 require_relative 'toggl_reporter/config'
 require_relative 'toggl_reporter/summary'
-require 'pry'
 
 config = TogglReporter::Config.new
 fetcher = TogglReporter::Fetcher.new(config)
