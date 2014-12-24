@@ -2,11 +2,12 @@ require 'yaml'
 
 module TogglReporter
   class Config
-    attr_accessor :api_token, :email
+    attr_accessor :api_token, :email, :cert_path
 
     def initialize
       @api_token = config['api_token']
       @email = config['email']
+      @cert_path = config['cert_path']
     end
 
     private

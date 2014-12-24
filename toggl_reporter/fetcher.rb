@@ -39,9 +39,14 @@ module TogglReporter
     def connection_params(config)
       {
         url: 'https://www.toggl.com',
-        ssl: { verify: false },
+        ssl: ssl_params(config),
         params: { user_agent: config.email }
       }
+    end
+
+    def ssl_params(config)
+      return { verify: false } if config.cert_path.nil?
+      { ca_file: config.cert_path }
     end
   end
 end
